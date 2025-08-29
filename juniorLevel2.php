@@ -8,9 +8,9 @@
 function splitJobCharacters($str)
 {
     $result = explode(',', $str);
-    foreach ($result as $value) {
-        echo $value . " ";
-    }
+    echo "[splitJobCharacters] output:\n";
+    print_r($result);
+    return $result;
 }
 
 /**
@@ -20,7 +20,25 @@ function splitJobCharacters($str)
  */
 function reverseJobCharacters($arr)
 {
-    // Your code here
+    $oddArray = [];
+    $evenArray = [];
+
+    foreach ($arr as $index => $r) {
+        if ($index % 2 == 1) {
+            $oddArray[] = $r;
+        } else {
+            $evenArray[] = $r;
+        }
+    }
+
+    echo "[reverseJobCharacters] output odd index array:\n";
+    print_r($oddArray);
+
+    $merged = array_merge($evenArray, $oddArray);
+    echo "[reverseJobCharacters] merge result:\n";
+    print_r($merged);
+
+    return $merged;
 }
 
 /**
@@ -51,7 +69,8 @@ function makingDreamTeam($arr)
  */
 function startUpMatchMaking($str)
 {
-    splitJobCharacters($str);
+    $splitted = splitJobCharacters($str);
+    $reversed = reverseJobCharacters($splitted);
 }
 
 // --- CONTOH PEMANGGILAN ---
